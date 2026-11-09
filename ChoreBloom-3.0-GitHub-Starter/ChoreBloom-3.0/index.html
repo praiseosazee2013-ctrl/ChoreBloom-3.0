@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#934eb0"><title>ChoreBloom 3.0</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="brand"><span>✿</span><div><b>ChoreBloom</b><small>3.0 · Together we bloom</small></div></div><button id="logout" class="ghost hidden">Log out</button></header>
+<main>
+<section id="auth" class="auth card">
+ <div class="flower">🌸</div><p class="eyebrow">WELCOME TO CHOREBLOOM</p><h1>Make teamwork bloom.</h1><p class="muted">Sign in or create an account to share chores with your group.</p>
+ <div class="tabs"><button class="tab active" data-auth="login">Log in</button><button class="tab" data-auth="signup">Create account</button></div>
+ <form id="authForm"><label>Email<input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></label><label>Password<input id="password" type="password" minlength="8" autocomplete="current-password" required placeholder="At least 8 characters"></label><button class="primary full" id="authSubmit">Log in</button></form>
+ <p id="authMessage" class="message" aria-live="polite"></p><p class="tiny">Use an email address you are allowed to use. Ask a parent or guardian before creating online accounts. Never share your password.</p>
+</section>
+<section id="workspace" class="hidden">
+ <div class="welcome"><div><p class="eyebrow">YOUR SHARED SPACE</p><h1>Hi, <span id="displayName">there</span>! 💜</h1><p class="muted">A little teamwork goes a long way.</p></div><div class="card stat"><small>Group chores done</small><strong id="progress">0%</strong></div></div>
+ <section class="card group-card"><div><p class="eyebrow">YOUR GROUP</p><h2 id="groupName">No group selected</h2><p class="muted" id="groupHint">Create a group or join one with an invite code.</p></div><div class="group-actions"><form id="createGroup"><input id="newGroupName" maxlength="40" placeholder="New group name" required><button class="primary">Create group</button></form><form id="joinGroup"><input id="inviteCode" placeholder="Paste invite code" required><button class="secondary">Join group</button></form></div><div id="inviteArea" class="invite hidden"><span>Invite code</span><code id="inviteText"></code><button id="copyInvite" class="secondary">Copy</button></div></section>
+ <nav class="tabs main-tabs"><button class="tab active" data-view="chores">Chores</button><button class="tab" data-view="people">People</button></nav>
+ <section id="choresView">
+  <div class="card"><h2>Add a chore</h2><form id="choreForm" class="form-grid"><label>Chore<input id="choreTitle" maxlength="90" required placeholder="e.g. Put away laundry"></label><label>Assign to<select id="assignedTo" required></select></label><label>Points<select id="points"><option>5</option><option selected>10</option><option>15</option><option>20</option><option>25</option></select></label><button class="primary">＋ Add chore</button></form></div>
+  <div class="heading"><h2>Chore board</h2><select id="filter"><option value="all">All chores</option><option value="open">To do</option><option value="done">Completed</option></select></div><div id="choreList" class="list"></div>
+ </section>
+ <section id="peopleView" class="hidden"><div class="card"><h2>Group members</h2><div id="members" class="list"></div></div></section>
+</section>
+<p id="globalMessage" class="message" aria-live="polite"></p>
+</main><footer>ChoreBloom 3.0 🌷 <span>Shared with care</span></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="app.js"></script>
+</body></html>
